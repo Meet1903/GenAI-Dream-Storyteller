@@ -72,12 +72,12 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
-      <h1 className="text-2xl font-bold text-black mb-4">AI Dream Storyteller</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+      <h1 className="text-4xl text-center font-mono font-bold text-black mb-4 text-blue-600">AI Dream Storyteller</h1>
 
       <form className="w-full max-w-md" onSubmit={interpretDream}>
         <textarea
-          className="w-full p-2 text-black border border-gray-300 rounded-md mb-4"
+          className="w-full p-2 text-black border border-gray-300 rounded-md"
           placeholder="Describe your dream here..."
           value={dream}
           onChange={(e) => setDream(e.target.value)}
@@ -106,7 +106,7 @@ export default function Home() {
           <div>
             {conversationHistory.map((item, index) => (
               <div key={index} className="mb-2">
-                <strong className="text-black">Question:</strong> <p className="text-blue-600">{item.question}</p>
+                <strong className="text-black">Question:</strong> <p className="text-blue-600 text-lg">{item.question}</p>
                 <strong className="text-black">Answer:</strong> <p className="text-gray-800"><ReactMarkdown>{item.answer}</ReactMarkdown></p>
               </div>
             ))}

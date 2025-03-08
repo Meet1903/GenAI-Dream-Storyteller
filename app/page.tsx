@@ -117,7 +117,7 @@ export default function Home() {
       {story && (
         <form className="w-full max-w-md mt-4" onSubmit={handleFollowUp}>
           <textarea
-            className="w-full p-2 text-black border border-gray-300 rounded-md mb-4"
+            className="w-full p-2 text-black border border-gray-300 rounded-md"
             placeholder="Ask a follow-up question about the dream..."
             value={followUpQuestion}
             onChange={(e) => {

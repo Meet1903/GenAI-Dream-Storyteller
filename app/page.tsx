@@ -77,10 +77,15 @@ export default function Home() {
 
       <form className="w-full max-w-md" onSubmit={interpretDream}>
         <textarea
-          className="w-full p-2 text-black border border-gray-400 rounded-2xl"
+          className="w-full p-2 text-black border border-gray-400 rounded-2xl resize-none overflow-hidden"
           placeholder="Describe your dream here..."
           value={dream}
-          onChange={(e) => setDream(e.target.value)}
+          onChange={(e) => {
+              setDream(e.target.value);
+              e.target.style.height = "auto";
+              e.target.style.height = `${e.target.scrollHeight}px`;
+            }
+          }
         />
         <button
           type="submit"
@@ -117,11 +122,13 @@ export default function Home() {
       {story && (
         <form className="w-full max-w-md mt-4" onSubmit={handleFollowUp}>
           <textarea
-            className="w-full p-2 text-black border border-gray-400 rounded-2xl"
+            className="w-full p-2 text-black border border-gray-400 rounded-2xl resize-none overflow-hidden"
             placeholder="Ask a follow-up question about the dream..."
             value={followUpQuestion}
             onChange={(e) => {
               setFollowUpQuestion(e.target.value);
+              e.target.style.height = "auto";
+              e.target.style.height = `${e.target.scrollHeight}px`;
             }}
           />
           <button

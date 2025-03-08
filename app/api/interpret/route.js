@@ -28,7 +28,7 @@ export async function POST(req, res) {
             });
 
             prompt += `\nNow, I have one more question for you, you can take creative liberty to answer it. 
-            Treat it like your own dream and answer this question: ${followUpQuestion} `;
+            Answer this question: ${followUpQuestion} `;
         } else if (followUpQuestion) {
             prompt = `I had a dream, ${dream}, and you created this wonderful story ${story}. Now I have one more question for you, you can take creative liberty to answer it. 
             Answer this question: ${followUpQuestion} `;

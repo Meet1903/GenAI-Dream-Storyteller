@@ -78,7 +78,7 @@ export default function Home() {
       <form className="w-full max-w-md" onSubmit={interpretDream}>
         <textarea
           className="w-full p-2 text-black border border-gray-400 rounded-2xl resize-none overflow-hidden"
-          placeholder="Show a weirdly fantastic dream last night? Describe it here..."
+          placeholder="Saw a weirdly fantastic dream last night? Describe it here..."
           value={dream}
           onChange={(e) => {
               setDream(e.target.value);

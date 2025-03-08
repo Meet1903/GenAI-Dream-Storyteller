@@ -19,7 +19,15 @@ export async function POST(req, res) {
         console.log("Interpreting dream 2:", dream);
 
         const result = await model.generateContent({
-            contents: [{ role: "user", parts: [{ text: `Please interpret the following dream: ${dream}` }] }]
+            contents: [{ role: "user", parts: [{ 
+                text: `Interepret this dream into a short and amazing story representation, 
+                so that I can revisit the dream, in human like language with no extra knowledge bombardment. 
+                Don't use heavy words, keep it simple and easy to understand.
+                Don't use "here's your story" or something similar, just give me the story in human language: ${dream}` }]
+            }], 
+            generationConfig: {
+                temperature: 0.8,
+            }
         });
 
         console.log("Interpreting dream 3:", dream);

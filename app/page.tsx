@@ -7,7 +7,7 @@ export default function Home() {
   const [dream, setDream] = useState<string>("");
   const [story, setStory] = useState<string>("");
   const [followUpQuestion, setFollowUpQuestion] = useState<string>("");
-  const [conversationHistory, setConversationHistory] = useState<{ question: string, answer: string }[]>([]); // Conversation history
+  const [conversationHistory, setConversationHistory] = useState<{ question: string, answer: string }[]>([]); 
   const [loading, setLoading] = useState<boolean>(false);
 
   const interpretDream = async (e: React.FormEvent) => {
@@ -22,7 +22,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ dream, story, conversationHistory: [], followUpQuestion }), // Send only dream for initial request
+        body: JSON.stringify({ dream, story, conversationHistory: [], followUpQuestion }), 
       });
 
       const data = await response.json();
@@ -36,7 +36,6 @@ export default function Home() {
     }
   };
 
-  // Function to handle follow-up questions
   const handleFollowUp = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -59,7 +58,7 @@ export default function Home() {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Failed to get follow-up answer");
 
-      setConversationHistory((prev) => [...prev, { question: followUpQuestion, answer: data.interpretation }]); // Add answer to history
+      setConversationHistory((prev) => [...prev, { question: followUpQuestion, answer: data.interpretation }]); 
       setFollowUpQuestion("");
     } catch (error) {
       console.error(error);

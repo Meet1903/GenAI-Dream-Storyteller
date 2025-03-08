@@ -26,7 +26,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ dream, story, conversationHistory: [], followUpQuestion }), 
+        body: JSON.stringify({ dream}), 
       });
 
       const data = await response.json();
@@ -46,7 +46,7 @@ export default function Home() {
     setFollowUpLoading(true);
 
     try {
-      const response = await fetch("/api/interpret", {
+      const response = await fetch("/api/followup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

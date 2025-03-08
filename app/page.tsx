@@ -92,8 +92,8 @@ export default function Home() {
       </form>
 
       {story && (
-        <div className="mt-4 p-4 bg-white shadow rounded-2xl w-full max-w-md" aria-live="polite">
-          <h2 className="text-lg font-bold text-black mb-2">Dream Story</h2>
+        <div className="mt-4 p-4 bg-white shadow rounded-2xl w-full max-w-md border border-gray-400" aria-live="polite">
+          <h2 className="text-xl font-bold text-black mb-2">Dream Story</h2>
           <p className="text-gray-800">
             <ReactMarkdown>{story}</ReactMarkdown>
           </p>
@@ -101,12 +101,12 @@ export default function Home() {
       )}
 
       {conversationHistory.length > 0 && (
-        <div className="mt-4 p-4 bg-white shadow rounded-2xl w-full max-w-md" aria-live="polite">
-          <h2 className="text-lg font-bold text-black mb-2">Follow up</h2>
+        <div className="mt-4 p-4 bg-white shadow rounded-2xl w-full max-w-md border border-gray-400" aria-live="polite">
+          <h2 className="text-xl font-bold text-black mb-2">Follow up</h2>
           <div>
             {conversationHistory.map((item, index) => (
               <div key={index} className="mb-2">
-                <strong className="text-black">Question:</strong> <p className="text-blue-600 text-lg">{item.question}</p>
+                <strong className="text-black">Question:</strong> <p className="text-blue-600 text-lg mb-2">{item.question}</p>
                 <strong className="text-black">Answer:</strong> <p className="text-gray-800"><ReactMarkdown>{item.answer}</ReactMarkdown></p>
               </div>
             ))}

@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
-      <h1 className="text-2xl font-bold text-black mb-4">AI Dream Interpreter</h1>
+      <h1 className="text-2xl font-bold text-black mb-4">AI Dream Storyteller</h1>
 
       <form className="w-full max-w-md" onSubmit={interpretDream}>
         <textarea

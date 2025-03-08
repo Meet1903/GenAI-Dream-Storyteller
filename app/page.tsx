@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ReactMarkdown from 'react-markdown';
 
 export default function Home() {
   const [dream, setDream] = useState<string>("");
@@ -58,7 +59,9 @@ export default function Home() {
       {interpretation && (
         <div className="mt-4 p-4 bg-white shadow rounded-md w-full max-w-md" aria-live="polite">
           <h2 className="text-lg font-bold text-black mb-2">Interpretation</h2>
-          <p className="text-gray-800">{interpretation}</p>
+          <p className="text-gray-800">
+            <ReactMarkdown>{interpretation}</ReactMarkdown>
+          </p>
         </div>
       )}
     </div>

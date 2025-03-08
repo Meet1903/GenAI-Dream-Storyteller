@@ -10,13 +10,6 @@ export default function Home() {
   const [conversationHistory, setConversationHistory] = useState<{ question: string, answer: string }[]>([]); // Conversation history
   const [loading, setLoading] = useState<boolean>(false);
 
-  const addNullEntry = () => {
-    setConversationHistory((prevHistory) => [
-      ...prevHistory,
-      { question: '', answer: '' },
-    ]);
-  };
-
   const interpretDream = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!dream.trim()) return;

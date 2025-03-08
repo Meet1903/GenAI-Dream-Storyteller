@@ -15,6 +15,9 @@ export default function Home() {
     if (!dream.trim()) return;
 
     setLoading(true);
+    setStory("");
+    setConversationHistory([]);
+    setFollowUpQuestion("");
 
     try {
       const response = await fetch("/api/interpret", {

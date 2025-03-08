@@ -52,7 +52,7 @@ export default function Home() {
           className="w-full mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
           disabled={loading || !dream.trim()}
         >
-          {loading ? "Interpreting..." : "Interpret Dream"}
+          {loading ? "Creating..." : "Tell me a story"}
         </button>
       </form>
 

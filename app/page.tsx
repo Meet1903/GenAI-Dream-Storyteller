@@ -84,7 +84,7 @@ export default function Home() {
         />
         <button
           type="submit"
-          className="w-full mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
+          className="w-full mt-2 bg-blue-500 hover:bg-blue-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
           disabled={storyLoading || !dream.trim()}
         >
           {storyLoading ? "Creating..." : "Tell me a story"}
@@ -126,7 +126,7 @@ export default function Home() {
           />
           <button
             type="submit"
-            className="w-full mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
+            className="w-full mt-2 bg-green-500 hover:bg-green-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
             disabled={followUpLoading || !followUpQuestion.trim()}
           >
             {followUpLoading ? "Loading..." : "Ask a Question"}

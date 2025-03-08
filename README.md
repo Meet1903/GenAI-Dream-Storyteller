@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Dream Storyteller
 
-## Getting Started
+AI Dream Storyteller is a web application that interprets users' dreams and allows them to ask follow-up questions to continue the conversation.
 
-First, run the development server:
+## Try App
+Check app at [AI Dream Storyteller App](https://dream-interpreter-meet.vercel.app/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+- Submit a dream description to get an AI-generated interpretation.
+- Ask follow-up questions to dive deeper into the meaning of your dream.
+- User-friendly interface with markdown support for formatted responses.
+
+## Tech Stack
+- **Frontend:** Next.js, React, Tailwind CSS
+- **Backend:** API routes (Node.js)
+- **AI Model:** Gemini-2.0 Flash
+
+## Environment Variables
+Create a `.env.local` file in the root directory and add your API keys:
+```env
+NEXT_PUBLIC_API_KEY=your-gemini-api-key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Meet1903/GenAI-Dream-Storyteller.git
+   cd GenAI-Dream-Storyteller
+   ```
+2. Environment Variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    Create a `.env.local` file in the root directory and add your API keys:
+    ```env
+    NEXT_PUBLIC_API_KEY=your-gemini-api-key
+    ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
+1. Enter your dream in the text area and submit.
+2. Receive an AI-generated interpretation.
+3. Ask follow-up questions in the conversation interface.
+4. Continue asking questions based on the previous response.
 
-## Learn More
+## Future Improvements
+- Enhance AI response quality with context retention.
+- Add user authentication for saving dream interpretations.
+- Implement voice-to-text input for describing dreams.
 
-To learn more about Next.js, take a look at the following resources:
+## License
+This project is licensed under the MIT License.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

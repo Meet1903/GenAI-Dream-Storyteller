@@ -77,14 +77,14 @@ export default function Home() {
 
       <form className="w-full max-w-md" onSubmit={interpretDream}>
         <textarea
-          className="w-full p-2 text-black border border-gray-300 rounded-md"
+          className="w-full p-2 text-black border border-gray-400 rounded-2xl"
           placeholder="Describe your dream here..."
           value={dream}
           onChange={(e) => setDream(e.target.value)}
         />
         <button
           type="submit"
-          className="w-full mt-2 bg-blue-500 hover:bg-blue-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
+          className="w-full mt-2 bg-blue-500 hover:bg-blue-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded-2xl disabled:bg-gray-300"
           disabled={storyLoading || !dream.trim()}
         >
           {storyLoading ? "Creating..." : "Tell me a story"}
@@ -92,7 +92,7 @@ export default function Home() {
       </form>
 
       {story && (
-        <div className="mt-4 p-4 bg-white shadow rounded-md w-full max-w-md" aria-live="polite">
+        <div className="mt-4 p-4 bg-white shadow rounded-2xl w-full max-w-md" aria-live="polite">
           <h2 className="text-lg font-bold text-black mb-2">Dream Story</h2>
           <p className="text-gray-800">
             <ReactMarkdown>{story}</ReactMarkdown>
@@ -101,7 +101,7 @@ export default function Home() {
       )}
 
       {conversationHistory.length > 0 && (
-        <div className="mt-4 p-4 bg-white shadow rounded-md w-full max-w-md" aria-live="polite">
+        <div className="mt-4 p-4 bg-white shadow rounded-2xl w-full max-w-md" aria-live="polite">
           <h2 className="text-lg font-bold text-black mb-2">Follow up</h2>
           <div>
             {conversationHistory.map((item, index) => (
@@ -117,7 +117,7 @@ export default function Home() {
       {story && (
         <form className="w-full max-w-md mt-4" onSubmit={handleFollowUp}>
           <textarea
-            className="w-full p-2 text-black border border-gray-300 rounded-md"
+            className="w-full p-2 text-black border border-gray-400 rounded-2xl"
             placeholder="Ask a follow-up question about the dream..."
             value={followUpQuestion}
             onChange={(e) => {
@@ -126,7 +126,7 @@ export default function Home() {
           />
           <button
             type="submit"
-            className="w-full mt-2 bg-green-500 hover:bg-green-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
+            className="w-full mt-2 bg-green-500 hover:bg-green-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded-2xl disabled:bg-gray-300"
             disabled={followUpLoading || !followUpQuestion.trim()}
           >
             {followUpLoading ? "Loading..." : "Ask a Question"}

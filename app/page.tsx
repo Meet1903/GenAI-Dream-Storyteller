@@ -8,13 +8,14 @@ export default function Home() {
   const [story, setStory] = useState<string>("");
   const [followUpQuestion, setFollowUpQuestion] = useState<string>("");
   const [conversationHistory, setConversationHistory] = useState<{ question: string, answer: string }[]>([]); 
-  const [loading, setLoading] = useState<boolean>(false);
+  const [storyLoading, serStoryLoading] = useState<boolean>(false);
+  const [followUpLoading, setFollowUpLoading] = useState<boolean>(false);
 
   const interpretDream = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!dream.trim()) return;
 
-    setLoading(true);
+    serStoryLoading(true);
     setStory("");
     setConversationHistory([]);
     setFollowUpQuestion("");
@@ -35,14 +36,14 @@ export default function Home() {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+      serStoryLoading(false);
     }
   };
 
   const handleFollowUp = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setLoading(true);
+    setFollowUpLoading(true);
 
     try {
       const response = await fetch("/api/interpret", {
@@ -66,7 +67,7 @@ export default function Home() {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+      setFollowUpLoading(false);
     }
   };
 
@@ -84,9 +85,9 @@ export default function Home() {
         <button
           type="submit"
           className="w-full mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
-          disabled={loading || !dream.trim()}
+          disabled={storyLoading || !dream.trim()}
         >
-          {loading ? "Creating..." : "Tell me a story"}
+          {storyLoading ? "Creating..." : "Tell me a story"}
         </button>
       </form>
 
@@ -126,9 +127,9 @@ export default function Home() {
           <button
             type="submit"
             className="w-full mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md disabled:bg-gray-300"
-            disabled={loading || !followUpQuestion.trim()}
+            disabled={followUpLoading || !followUpQuestion.trim()}
           >
-            {loading ? "Loading..." : "Ask a Question"}
+            {followUpLoading ? "Loading..." : "Ask a Question"}
           </button>
         </form>
       )}

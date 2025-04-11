@@ -109,7 +109,7 @@ export default function Home() {
             </div>
             <button
                 onClick={() => signOut()}
-                className="text-red-500 hover:text-red-700 text-xs text-left"
+                className="text-red-500 hover:text-red-700 text-xs text-left hover:cursor-pointer"
               >
                 Sign out
               </button>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { signIn, signOut, useSession } from "next-auth/react";
+import axios from "axios";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -25,21 +26,17 @@ export default function Home() {
     setFollowUpQuestion("");
 
     try {
-      const response = await fetch("/api/interpret", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ dream, userId: session?.user?.email }),
+      const { data } = await axios.post("/api/interpret", {
+        dream,
+        userId: session?.user?.email,
       });
-
-      const data = await response.json();
-      if (!response.ok)
-        throw new Error(data.error || "Failed to interpret dream");
 
       setStory(data.interpretation || "Failed to interpret dream");
     } catch (error) {
       console.error(error);
+      if (axios.isAxiosError(error)) {
+        setStory(error.response?.data?.error || "Failed to interpret dream");
+      }
     } finally {
       setStoryLoading(false);
     }
@@ -51,23 +48,13 @@ export default function Home() {
     setFollowUpLoading(true);
 
     try {
-      const response = await fetch("/api/followup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          dream,
-          story,
-          conversationHistory: conversationHistory,
-          followUpQuestion,
-          userId: session?.user?.email,
-        }),
+      const { data } = await axios.post("/api/followup", {
+        dream,
+        story,
+        conversationHistory: conversationHistory,
+        followUpQuestion,
+        userId: session?.user?.email,
       });
-
-      const data = await response.json();
-      if (!response.ok)
-        throw new Error(data.error || "Failed to get a follow-up answer");
 
       setConversationHistory((prev) => [
         ...prev,
@@ -76,6 +63,9 @@ export default function Home() {
       setFollowUpQuestion("");
     } catch (error) {
       console.error(error);
+      if (axios.isAxiosError(error)) {
+        setFollowUpQuestion(error.response?.data?.error || "Failed to get a follow-up answer");
+      }
     } finally {
       setFollowUpLoading(false);
     }

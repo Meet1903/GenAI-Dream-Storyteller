@@ -67,7 +67,7 @@ export default function Home() {
 
       const data = await response.json();
       if (!response.ok)
-        throw new Error(data.error || "Failed to get follow-up answer");
+        throw new Error(data.error || "Failed to get a follow-up answer");
 
       setConversationHistory((prev) => [
         ...prev,

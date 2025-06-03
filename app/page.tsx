@@ -75,7 +75,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
       <div className="w-full max-w-md flex justify-between items-center mb-4">
         <h1 className="text-4xl font-mono font-bold text-blue-600">
-          AI Dream Storyteller
+          AI Dream Storyteller!
         </h1>
 
         {status === "loading" ? (
